@@ -1,2 +1,0 @@
-# MisPerris
-proyecto misperris
