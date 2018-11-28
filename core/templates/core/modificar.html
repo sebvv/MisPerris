@@ -1,0 +1,104 @@
+{%  extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="formuuu">
+    <br>
+    <div class="ver">
+    
+    <form action="" id="formu" method="POST" >
+    {% csrf_token %}
+
+    <input type="hidden" name="txtId" id="txtId" value="{{ mascota.id }}">
+
+        <h1 class="titulo">MODIFICAR MASCOTAS</h1>
+        <br>
+    <table class="tabla">
+        <tr>
+            <td> <label class="letraform"  for="">Nombre Mascota</label></td>
+            <td> <input class="letraform" type="text" name="txtNombre" id="txtNombre" value="{{ mascota.nombre_mascota }}"></td>
+        </tr>
+        <td> <label class="letraform" for="">Raza</label></td>
+            <td> <select class="letraform" name="cboRaza" id="cboRaza">
+                 <option value="">Seleccionar</option>   
+                 {% for m in raza %}
+                    <option 
+                    {% if m.id == mascota.raza.id %}
+                    {{ "selected" }}
+                    
+                    {% endif %}
+
+                    value="{{ m.id }}">{{ m.raza_mascota }}</option>
+                 {% endfor %}
+                    </select>
+            </td>
+            <tr></tr>
+        <td> <label class="letraform" for="">Genero</label></td>
+            <td> <select class="letraform" name="cboGenero" id="cboGenero">
+                 <option value="">Seleccionar</option>   
+                 {% for m in genero %}
+                    <option 
+                    {% if m.id == mascota.genero.id %}
+                    {{ "selected" }}
+
+                    {% endif %}
+                    
+                    value="{{ m.id }}">{{ m.genero }}</option>
+                 {% endfor %}
+                    </select>
+            </td>
+        <tr>
+            <td> <label class="letraform" for="">Fecha Ingreso</label></td>
+            <td> <input class="letraform" type="date" name="txtFechaIngreso" id="txtFechaIngreso" value="{{ mascota.fecha_ingreso  }}"></td>
+        </tr>
+        <tr>
+            <td> <label class="letraform" for="">Fecha Nacimiento</label></td>
+            <td> <input class="letraform" type="date" name="txtFechaNacimiento" id="txtFechaNacimiento" value="{{ mascota.fecha_nacimiento }}">{{ mascota.fecha_nacimiento }}"</td>
+        </tr>
+       
+        <tr>
+            <td> <label class="letraform" for="">Estado</label></td>
+            <td> <select class="letraform" name="cboEstado" id="cboEstado">
+                 <option value="">Seleccionar</option>   
+                 {% for m in estado %}
+                    <option 
+                    {% if m.id == mascota.estado.id %}
+                    {{ "selected" }}
+
+                    {% endif %}
+                    
+                    
+                    value="{{ m.id }}">{{ m.estado }}</option>
+                 {% endfor %}
+                    </select>
+                <tr></tr>
+                <td> <label class="letraform" for="">Foto</label></td>
+                <td> <input name="imagen" id="imagen" type="file"  /></td>
+            </td>
+        </tr>
+
+            <td></td>
+            <td>
+                <br>
+                <br>
+                <input class="disboton" type="submit" value="Guardar" id="btnGuardar" name="Modificar">
+            </td>
+        </tr>
+    </table>
+    </form>
+    <h3>{{ mensaje }}</h3>
+</div>
+
+</div>
+
+<footer>
+    
+        <br>
+        <h6 class="letras">Desarrollo Web y Mobile</h6>
+     
+     </footer>
+
+{% endblock contenido %}
+    

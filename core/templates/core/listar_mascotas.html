@@ -1,0 +1,70 @@
+{%  extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="formuuu">
+    <br>
+    <div class="ver">
+    
+    <form action="" id="formu" method="POST" >
+    {% csrf_token %}
+        <h1 class="titulo">ADMINISTRACION DE MASCOTAS</h1>
+        <br>
+        <div id="div1">
+    <table class="table table-responsive table-bordered" border="1">
+       <thead>
+    <tr>
+        <th>Nombre Mascotas</th>
+        <th>Fecha de Ingreso</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Estado</th>
+        <th>Genero</th>
+        <th>Raza</th>
+        <th>Imagen</th>
+    </tr>
+</thead>
+<tbody>
+    {% for m in mascota %}
+    <tr>
+        <td>{{ m.nombre_mascota }}</td>
+        <td>{{ m.fecha_ingreso }}</td>
+        <td>{{ m.fecha_nacimiento }}</td>
+        <td>{{ m.estado.estado }}</td>
+        <td>{{ m.genero.genero }}</td>
+        <td>{{ m.raza.raza_mascota }}</td>
+        <td>
+        {% if m.foto %}
+         <img src="{{ m.foto.url }}" width="200" height="200">
+        {% endif %}
+        </td>
+        <td>
+            <a class="disboton" href="{% url 'eliminar_mascotas' m.id %}">Eliminar</a>
+        </td>
+        <td>
+            <a class="disboton" href="{% url 'modificar_mascota' m.id %}">Modificar</a>
+        </td>
+
+    </tr>
+    {% endfor %} 
+</tbody>
+    </table>      
+</div>
+    </form>
+    <h3>{{ mensaje }}</h3>
+</div>
+
+</div>
+
+<footer>
+    
+        <br>
+        <h6 class="letras">Desarrollo Web y Mobile</h6>
+     
+     </footer>
+
+{% endblock contenido %}
+    

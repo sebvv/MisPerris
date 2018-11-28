@@ -1,0 +1,95 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}
+<style>
+
+        #header{
+            background-color:rgb(133, 212,183);
+            color:white;
+        }
+
+        td, th {
+            background-color:white;
+        }
+    
+        /* Layout */
+    
+        #container {
+            min-width: 0;
+            background-color:white;
+        }
+    
+        /* Dashboard */
+    
+        .dashboard #content {
+            width: 50%;
+            background-color:white;
+        }
+    
+    
+        .dashboard .module table td a {
+            background-color:rgb(109, 204,170);
+            padding-right: 0;
+        }
+        .dashboard .module table th {
+            width: 100%;
+            background: rgb(109, 204,170);
+        }
+        .module h2, .module caption, .inline-group h2 {
+           
+            background: rgb(133, 212,183);
+
+        }
+        a:link, a:visited {
+            color: black;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        h1 {
+            font-size: 22px;
+            font-weight: normal;
+            color: black;
+        }
+        .dashboard .module table td {
+            white-space: nowrap;
+            background-color: rgb(109, 204,170);
+        }
+        a.section:link, a.section:visited {
+            color: #fff;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        div.breadcrumbs {
+            background-color: rgb(109, 204,170);
+            color:white;
+        }
+        .object-tools a.addlink {
+            background-color: rgb(109, 204,170);
+        }
+        #branding h1, #branding h1 a:link, #branding h1 a:visited {
+            color: white;
+        }
+        .button, input[type=submit], input[type=button], .submit-row input, a.button {
+            background:rgb(109, 204,170) ;
+            color: #fff;
+        }
+        html {
+            background-color: rgb(133, 212,183);
+        }
+        body.login {
+            background: transparent!important;
+        }
+
+
+                
+</style>
+
+{% endblock extrastyle %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

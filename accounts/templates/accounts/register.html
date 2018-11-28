@@ -1,0 +1,35 @@
+{%  extends 'core/base.html' %}
+
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+{% block contenido %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<div class="formuuu">
+    <br>
+    <div class="ver">
+        <form action="" method="post">
+            {% csrf_token %}
+            <h1 class="titulo">Registro Usuario</h1>
+            <table class="tablaReg">
+                {{ form.as_table }}
+               
+            </table>
+            <br>
+            <input class="disbotonRe"  type="submit" value="registrar" >
+
+        </form>    
+<h3>{{ mensaje }}</h3>
+</div>
+</div>
+<footer>
+    
+    <br>
+    <h6 class="letras">Desarrollo Web y Mobile</h6>
+ 
+ </footer>
+
+
+{% endblock contenido %}

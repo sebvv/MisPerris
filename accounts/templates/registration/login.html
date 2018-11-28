@@ -1,0 +1,40 @@
+{%  extends 'core/base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<div class="formuuu">
+        <br>
+        <div class="ver">
+        
+            <form action="" method="POST">
+                {% csrf_token %}
+            <h1 class="titulo">LOGIN</h1>
+            <br>
+        <table class="tabla">
+            {{ form.as_table }}
+
+        </table>
+        <input style="margin-left: 45%;margin-top: 10%;" class="disboton" type="submit" value="Ingresar">
+</form>
+    
+<h3>{{ mensaje }}</h3>
+<table>
+    <tr>
+        <td> <a class="btn btn-success" href="{% url 'register' %}" style="margin-left:230%;margin-top: 100px;">Registrarse</a></td>
+        <td> <a  class="btn btn-success" href="{% url 'social:begin' 'facebook' %}" style="background-color:#3B5999; border-color: #6B89C7;margin-left:160%;margin-top: 100px;">Login con Facebook</a></td>        
+    </tr>
+</table>
+</div>
+</div>
+<footer>
+    
+    <br>
+    <h6 class="letras">Desarrollo Web y Mobile</h6>
+ 
+ </footer>
+
+{% endblock contenido %}

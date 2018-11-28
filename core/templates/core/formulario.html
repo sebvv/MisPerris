@@ -1,0 +1,93 @@
+{%  extends 'core/base.html' %}
+
+{% load static %}
+
+
+{% block contenido %}
+
+
+<div class="formuuu">
+    <br>
+    <div class="ver">
+    
+    <form action="" id="formu" method="POST"  >
+            {% csrf_token %}
+        <h1 class="titulo">FORMULARIO</h1>
+        <br>
+    <table class="tabla">
+        <tr>
+            <td> <label class="letraform" for="">RUT</label></td>
+            <td> <input class="letraform" type="text" name="txtRut" id="txtRut"></td>
+        </tr>
+        <tr>
+            <td> <label class="letraform"  for="">Nombre Completo</label></td>
+            <td> <input class="letraform" type="text" name="txtNombre" id="txtNombre"></td>
+        </tr>
+        <tr>
+            <td> <label class="letraform" for="">Fecha Nacimiento</label></td>
+            <td> <input class="letraform" type="date" name="txtFechaNacimiento" id="txtFechaNacimiento"></td>
+        </tr>
+        <tr>
+            <td> <label class="letraform" for="">Correo Electronico</label></td>
+            <td> <input class="letraform" type="text" name="txtCorreo" id="txtCorreo"></td>
+        </tr>
+        <tr>
+            <td> <label class="letraform" for="">Telefono Contacto</label></td>
+            <td> <input class="letraform" type="number" name="txtNumero" id="txtNumero"></td>
+        </tr>
+        <tr>
+            <td> <label class="letraform" for="">Región</label></td>
+            <td> <select class="letraform" name="cboRegion" id="cboRegion">
+                 <option value="">Seleccionar</option>   
+                 {% for m in region %}
+                    <option value="{{ m.id }}">{{ m.nombre_region }}</option>
+                 {% endfor %}
+                    </select>
+
+            </td>
+        </tr>
+        <tr>
+            <td> <label class="letraform" for="">Comuna</label> </td>
+                <td><select class="letraform" name="cboComuna" id="cboComuna">
+                <option value="">Seleccionar</option>
+                {% for m in comuna %}
+                    <option value="{{ m.id }}">{{ m.nombre_comuna }}</option>
+                {% endfor %}
+                    </select>
+                </td>
+            </tr>
+                <tr>
+                    <td> <label class="letraform" for="">Tipo Vivienda</label></td>
+                    <td> <select class="letraform" name="cboVivienda" id="cboVivienda">
+                        <option value="">Seleccionar</option>  
+                        {% for m in vivienda %}
+                        <option value="{{ m.id }}">{{ m.tipo_vivienda }}</option>
+                         {% endfor %}                     
+                            </select>
+                    </td>
+                </tr>
+             <tr>
+            <td></td>
+            <td>
+                <br>
+                <br>
+                <input class="disboton" type="submit" value="Guardar" id="btnGuardar" name="btnGuardar">
+            </td>
+        </tr>
+    </table>
+    </form>
+    <h3>{{ mensaje }}</h3>
+</div>
+
+</div>
+
+<footer>
+    
+        <br>
+        <h6 class="letras">Desarrollo Web y Mobile</h6>
+     
+     </footer>
+
+{% endblock contenido %}
+    
+

@@ -1,0 +1,83 @@
+{%  extends 'core/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="formuuu">
+    <br>
+    <div class="ver">
+    
+    <form action="" id="formu" method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+        <h1 class="titulo">MASCOTAS</h1>
+        <br>
+    <table class="tabla">
+        <tr>
+            <td> <label class="letraform"  for="">Nombre Mascota</label></td>
+            <td> <input class="letraform" type="text" name="txtNombre" id="txtNombre"></td>
+        </tr>
+        <td> <label class="letraform" for="">Raza</label></td>
+            <td> <select class="letraform" name="cboRaza" id="cboRaza">
+                 <option value="">Seleccionar</option>   
+                 {% for m in raza %}
+                    <option value="{{ m.id }}">{{ m.raza_mascota }}</option>
+                 {% endfor %}
+                    </select>
+            </td>
+            <tr></tr>
+        <td> <label class="letraform" for="">Genero</label></td>
+            <td> <select class="letraform" name="cboGenero" id="cboGenero">
+                 <option value="">Seleccionar</option>   
+                 {% for m in genero %}
+                    <option value="{{ m.id }}">{{ m.genero }}</option>
+                 {% endfor %}
+                    </select>
+            </td>
+        <tr>
+            <td> <label class="letraform" for="">Fecha Ingreso</label></td>
+            <td> <input class="letraform" type="date" name="txtFechaIngreso" id="txtFechaIngreso"></td>
+        </tr>
+        <tr>
+            <td> <label class="letraform" for="">Fecha Nacimiento</label></td>
+            <td> <input class="letraform" type="date" name="txtFechaNacimiento" id="txtFechaNacimiento"></td>
+        </tr>
+       <tr></tr>
+
+            <td> <label class="letraform" for="">Estado</label></td>
+            <td> <select class="letraform" name="cboEstado" id="cboEstado">
+                 <option value="">Seleccionar</option>   
+                 {% for m in estado %}
+                    <option value="{{ m.id }}">{{ m.estado }}</option>
+                 {% endfor %}
+                    </select>
+        <tr></tr>
+                <td> <label class="letraform" for="">Foto</label></td>
+                <td> <input name="imagen" id="imagen" type="file" ></td>
+
+            </td>
+        <tr>
+            </tr>
+            <td></td>
+            <td>
+                <br>
+                <br>
+                <input class="disboton" type="submit" value="Guardar" id="btnGuardar" name="btnGuardar">
+            </td>
+        </tr>
+    </table>
+    </form>
+    <h3>{{ mensaje }}</h3>
+</div>
+
+</div>
+
+<footer>
+    
+        <br>
+        <h6 class="letras">Desarrollo Web y Mobile</h6>
+     
+     </footer>
+
+{% endblock contenido %}
+    
